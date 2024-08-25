@@ -1,11 +1,10 @@
 import * as brevo from "@getbrevo/brevo";
 
 const instanseApi = new brevo.TransactionalEmailsApi();
-const api_key ="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"
 
 instanseApi.setApiKey(
   brevo.TransactionalEmailsApiApiKeys.apiKey,
-  api_key as string
+  process.env.API_KEY as string
 );
 
 interface Params {
@@ -42,4 +41,3 @@ export async function sendSmtpEmail({ subject, to, htmlContent }: Params) {
     }
   }
 }
-
