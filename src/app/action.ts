@@ -1,4 +1,5 @@
 import { sendSmtpEmail } from "./lib/brevo";
+import { redirect } from "next/navigation";
 
 export async function handleForm(formData: FormData) {
   "use server";
@@ -24,4 +25,6 @@ export async function handleForm(formData: FormData) {
 
     htmlContent: content as string,
   });
+
+  redirect("/success")
 }
